@@ -44,7 +44,7 @@
 */
 int main(void)
 {
-  int i = 0;
+  int i = 0, button = 0;
 
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA,ENABLE);
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC,ENABLE);
@@ -66,10 +66,25 @@ int main(void)
 
   while (1)
   {
+	  /*
 	  GPIO_SetBits(GPIOA,GPIO_Pin_5);
 	  //for (i=0;i<65326;i++){};
 	  GPIO_ResetBits(GPIOA,GPIO_Pin_5);
 	  //for (i=0;i<65326;i++){};
+	   */
+
+	 button = GPIO_ReadInputDataBit(GPIOC,GPIO_Pin_13);
+
+	 if(button == 1)
+	 {
+		 GPIO_SetBits(GPIOA,GPIO_Pin_5);
+	 }
+	 else
+	 {
+		  GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+
+	 }
+
   }
   return 0;
 }
