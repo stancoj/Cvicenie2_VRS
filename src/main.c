@@ -66,7 +66,10 @@ int main(void)
 
   while (1)
   {
-	i++;
+	  GPIO_SetBits(GPIOA,GPIO_Pin_5);
+	  //for (i=0;i<65326;i++){};
+	  GPIO_ResetBits(GPIOA,GPIO_Pin_5);
+	  //for (i=0;i<65326;i++){};
   }
   return 0;
 }
